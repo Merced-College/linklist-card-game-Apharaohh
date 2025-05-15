@@ -1,4 +1,3 @@
-
 //package linkedLists;
 
 import java.io.BufferedReader;
@@ -16,7 +15,6 @@ public class CardGame {
 
 	public static void main(String[] args) {
 
-		// File name to read from
         String fileName = "cards.txt"; // Ensure the file is in the working directory or specify the full path
 
         // Read the file and create Card objects
@@ -108,5 +106,21 @@ public class CardGame {
             
             System.out.println("Score - You: " + playerScore + " | Computer: " + computerScore);
         }
+        
+        // Final results
+        System.out.println("\n=== FINAL SCORE ===");
+        System.out.println("Rounds played: " + rounds);
+        System.out.println("Your score: " + playerScore);
+        System.out.println("Computer's score: " + computerScore);
+        
+        if (playerScore > computerScore) {
+            System.out.println("You win the game!");
+        } else if (computerScore > playerScore) {
+            System.out.println("Computer wins the game!");
+        } else {
+            System.out.println("The game ends in a tie!");
+        }
+        
+        scanner.close();
     }
-}
+}//end class
