@@ -1,3 +1,4 @@
+
 //package linkedLists;
 
 import java.io.BufferedReader;
@@ -63,6 +64,49 @@ public class CardGame {
         // *** GAME IMPLEMENTATION STARTS HERE ***
         System.out.println("\n=== WAR CARD GAME ===");
         System.out.println("Each player draws a card. Higher card wins!");
+        playWarGame();
 
 	}//end main
+    
+    // Simple War game implementation
+    private static void playWarGame() {
+        Scanner scanner = new Scanner(System.in);
+        int playerScore = 0;
+        int computerScore = 0;
+        int rounds = 0;
+        
+        while (true) {
+            System.out.print("\nPress Enter to play a round or 'q' to quit: ");
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("q")) break;
+            
+            // Draw cards
+            Card playerCard = cardList.getFirst();
+            Card computerCard = cardList.getFirst();
+            
+            // Check if we're out of cards
+            if (playerCard == null || computerCard == null) {
+                System.out.println("No more cards left. Game over!");
+                break;
+            }
+            
+            rounds++;
+            System.out.println("\nRound " + rounds + ":");
+            System.out.println("You drew: " + playerCard);
+            System.out.println("Computer drew: " + computerCard);
+            
+            // Compare cards
+            if (playerCard.getCardValue() > computerCard.getCardValue()) {
+                System.out.println("You win this round!");
+                playerScore++;
+            } else if (computerCard.getCardValue() > playerCard.getCardValue()) {
+                System.out.println("Computer wins this round!");
+                computerScore++;
+            } else {
+                System.out.println("It's a tie!");
+            }
+            
+            System.out.println("Score - You: " + playerScore + " | Computer: " + computerScore);
+        }
+    }
 }
