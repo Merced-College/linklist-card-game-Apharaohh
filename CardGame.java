@@ -9,8 +9,6 @@ import java.io.IOException;
 //import java.util.List;
 import java.util.Scanner;
 
-
-
 public class CardGame {
 	
 	private static LinkList cardList = new LinkList();  // make list
@@ -62,6 +60,9 @@ public class CardGame {
 		System.out.println("the deck");
 		cardList.displayList();
 
-	}//end main
+        // *** GAME IMPLEMENTATION STARTS HERE ***
+        System.out.println("\n=== WAR CARD GAME ===");
+        System.out.println("Each player draws a card. Higher card wins!");
 
-}//end class
+	}//end main
+}
